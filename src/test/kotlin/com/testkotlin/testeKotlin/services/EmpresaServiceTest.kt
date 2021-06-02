@@ -1,22 +1,23 @@
-package com.testkotlin.testeKotlin.services.impl
+package com.testkotlin.testeKotlin.services
 
 import com.testkotlin.testeKotlin.documents.Empresa
 import com.testkotlin.testeKotlin.repositories.EmpresaRepository
-import com.testkotlin.testeKotlin.services.EmpresaService
+import org.junit.jupiter.api.Assertions.*
 
-import org.junit.Before
-import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.runner.RunWith
 import org.mockito.BDDMockito
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
-import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest
-class EmpreServiceTest {
+@ActiveProfiles("test")
+@AutoConfigureDataMongo
+class EmpresaServiceTest {
 
     @Autowired
     val empresaService: EmpresaService? = null
@@ -24,11 +25,11 @@ class EmpreServiceTest {
     @MockBean
     private val empresaRepository: EmpresaRepository? = null
 
-    private val CNPJ = "123654789000199"
+    private val CNPJ = "51463645000100"
 
     @BeforeEach
     @Throws(Exception::class)
-    fun setUp(){
+    fun setUp() {
         BDDMockito.given(empresaRepository?.findByCnpj(CNPJ)).willReturn(empresa())
         BDDMockito.given(empresaRepository?.save(empresa())).willReturn(empresa())
     }
@@ -36,14 +37,15 @@ class EmpreServiceTest {
     @Test
     fun testBuscarEmpresaPorCnpj() {
         val empresa: Empresa? = empresaService?.buscarPorCnpj(CNPJ)
-        assertNotNull(empresa)
+        Assertions.assertNotNull(empresa)
     }
 
     @Test
     fun testPersistirEmpresa() {
         val empresa: Empresa? = empresaService?.persistir(empresa())
-        assertNotNull(empresa)
+        Assertions.assertNotNull(empresa)
     }
 
-    private fun empresa(): Empresa = Empresa("Razão Social", CNPJ,"1" )
+    private fun empresa(): Empresa = Empresa("Razão Social", CNPJ, "1")
+
 }
