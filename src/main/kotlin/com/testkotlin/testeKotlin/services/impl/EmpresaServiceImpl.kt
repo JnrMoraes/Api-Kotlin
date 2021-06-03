@@ -1,7 +1,8 @@
-package com.testkotlin.testeKotlin.services
+package com.testkotlin.testeKotlin.services.impl
 
 import com.testkotlin.testeKotlin.documents.Empresa
 import com.testkotlin.testeKotlin.repositories.EmpresaRepository
+import com.testkotlin.testeKotlin.services.EmpresaService
 import org.springframework.stereotype.Service
 
 @Service
