@@ -7,7 +7,7 @@ import com.testkotlin.testeKotlin.services.FuncionarioService
 import org.springframework.stereotype.Service
 
 @Service
-class FuncionarioServiceImpl (val funcionarioRepository: FuncionarioRepository) : FuncionarioService {
+interface FuncionarioServiceImpl (val funcionarioRepository: FuncionarioRepository) : FuncionarioService {
 
     override fun persistir(funcionario: Funcionario) = funcionarioRepository.save(funcionario)
 
