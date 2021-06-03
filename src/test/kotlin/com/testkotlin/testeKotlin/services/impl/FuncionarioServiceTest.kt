@@ -1,8 +1,9 @@
-package com.testkotlin.testeKotlin.services
+package com.testkotlin.testeKotlin.services.impl
 
 import com.testkotlin.testeKotlin.documents.Funcionario
 import com.testkotlin.testeKotlin.enums.PerfilEnum
 import com.testkotlin.testeKotlin.repositories.FuncionarioRepository
+import com.testkotlin.testeKotlin.services.FuncionarioService
 import com.testkotlin.testeKotlin.utils.SenhaUtils
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach

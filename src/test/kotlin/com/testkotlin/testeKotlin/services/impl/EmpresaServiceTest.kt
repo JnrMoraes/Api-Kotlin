@@ -1,8 +1,8 @@
-package com.testkotlin.testeKotlin.services
+package com.testkotlin.testeKotlin.services.impl
 
 import com.testkotlin.testeKotlin.documents.Empresa
 import com.testkotlin.testeKotlin.repositories.EmpresaRepository
-import org.junit.jupiter.api.Assertions.*
+import com.testkotlin.testeKotlin.services.EmpresaService
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
